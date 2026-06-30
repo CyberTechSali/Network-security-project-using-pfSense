@@ -1,42 +1,35 @@
-# 🔒 Projet de sécurisation réseau avec pfSense
+# 🔒 Network Security Project with pfSense
 
 [![pfSense Version](https://img.shields.io/badge/pfSense-2.8.1-blue)](https://www.pfsense.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Report Language](https://img.shields.io/badge/Report-Language_French-blue?label=Report%20Language&color=blue)](docs/)
 
-## 📖 Contexte
-Ce projet, réalisé dans le cadre de ma formation, consiste à déployer une infrastructure réseau sécurisée en utilisant **pfSense**. L'objectif est de mettre en place une défense en profondeur (segmentation, pare-feu, proxy, IDS/IPS, VPN) pour protéger un réseau d'entreprise.
+---
 
-## 🏗️ Architecture mise en place
-- **Segmentation en 3 zones** : WAN (externe), LAN (interne), DMZ (serveurs exposés).
-- **Pare-feu** : Politique "deny by default" avec règles restrictives (notamment DMZ → LAN).
-- **Proxy & Filtrage** : Squid en mode transparent, couplé à SquidGuard pour le blocage par catégories (blacklist Université de Toulouse).
-- **Détection d'intrusions** : Snort en mode IPS avec politique "Balanced" (détection efficace de scans Nmap).
-- **VPN** : OpenVPN en accès distant (certificat + mot de passe) et en Site-à-Site.
-- **PKI interne** : Création d'une Autorité de Certification (CA) pour sécuriser l'interface Web, l'interception SSL et les tunnels VPN.
+## 📖 Overview
 
-## 📂 Contenu du dépôt
-- [`docs/Projet_Securisation_pfSense.pdf`](docs/Projet_Securisation_pfSense.pdf) : Rapport complet au format PDF, contenant toutes les étapes d'installation, les captures d'écran et les justifications techniques.
-- `LICENSE` : Licence du projet (MIT).
+This project, completed as part of my academic training, focuses on deploying a **secure enterprise network infrastructure** using **pfSense**. The goal was to implement a **defense-in-depth** strategy to protect corporate assets against modern cyber threats.
 
-## 🚀 Pourquoi ce projet est intéressant ?
-- **Approche exhaustive** : Couvre la majorité des briques de sécurité d'un réseau d'entreprise.
-- **Gestion des erreurs documentée** : Le rapport montre les problèmes rencontrés (notamment sur l'interception HTTPS) et les solutions apportées, démontrant une vraie capacité d'analyse.
-- **Cohérence cryptographique** : Utilisation d'une même infrastructure à clés (PKI) pour plusieurs services.
+The full technical documentation, including all installation steps, configuration details, and screenshots, is available in the attached PDF report.
 
-## 🛠️ Prérequis pour reproduire le projet
-- VMware Workstation / VirtualBox
-- 2 machines virtuelles pfSense (ou 1 pfSense + 1 client Windows/Linux)
-- Connaissances en réseau (sous-réseaux, routage)
+> **📄 Note**: The comprehensive project report is written in **French (Français)**.  
+> *Le rapport détaillé du projet est rédigé en **Français**.*
 
-## 📖 Comment lire ce projet ?
-1. Téléchargez le fichier PDF dans le dossier `docs/`.
-2. Suivez les chapitres dans l'ordre : de l'installation initiale à la mise en place des VPN.
-3. Les captures d'écran illustrent chaque étape clé.
+---
 
-## 👤 Auteur
-**Salma Ouchahed**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://linkedin.com/in/votre-profil) 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)](https://github.com/votre-compte)
+## 🏗️ Implemented Architecture & Features
 
-## 📜 Licence
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+- **3-Zone Network Segmentation** : WAN (External), LAN (Internal), DMZ (Exposed Servers).
+- **Firewall & Filtering** : Strict "Deny by Default" policy with restrictive rules (especially blocking DMZ → LAN traffic).
+- **NAT & Port Forwarding** : Secure exposure of internal web services via the DMZ.
+- **Transparent Proxy & Web Filtering** : Squid in transparent mode, combined with SquidGuard for category-based blocking using the University of Toulouse blacklist.
+- **Reverse Proxy & Load Balancing** : HAProxy configured for HTTP/HTTPS traffic distribution.
+- **Intrusion Detection / Prevention (IDS/IPS)** : Snort deployed in IPS mode with a "Balanced" policy (successfully detecting Nmap scans).
+- **Secure Communications (VPN)** :
+  - **Remote Access VPN** : OpenVPN with two-factor authentication (Certificate + User/Password).
+  - **Site-to-Site VPN** : OpenVPN tunnel established between two pfSense sites.
+- **Internal Public Key Infrastructure (PKI)** : Creation of a dedicated internal Certificate Authority (CA) used to secure the WebGUI, SSL interception, and VPN tunnels.
+
+---
+
+## 📂 Repository Content
