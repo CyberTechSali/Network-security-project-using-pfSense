@@ -15,7 +15,7 @@ This project, carried out as part of my academic training, aims to deploy a secu
 - **Internal PKI** : Creation of a Certificate Authority (CA) to secure the Web interface, SSL interception, and VPN tunnels.
 
 ## 📂 Repository Content
-- [`docs/Projet_Securisation_pfSense.pdf`](docs/Projet_Securisation_pfSense.pdf) : Complete PDF report, containing all installation steps, screenshots, and technical justifications.
+- [`docs/Projet_Securisation_pfSense.pdf`](docs/Projet de sécurisation réseau avec pfSense.pdf) : Complete PDF report, containing all installation steps, screenshots, and technical justifications.
 - `LICENSE` : Project license (MIT).
 
 ## 🚀 Why This Project is Interesting
@@ -35,8 +35,8 @@ This project, carried out as part of my academic training, aims to deploy a secu
 
 ## 👤 Author
 **Salma Ouchahed**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://linkedin.com/in/your-profile) 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)](https://github.com/your-username)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://www.linkedin.com/) 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)](https://github.com/CyberTechSali)
 
 ## 📜 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
