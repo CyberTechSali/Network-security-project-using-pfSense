@@ -1,79 +1,42 @@
-# Network-security-project-using-pfSense
-# 🔒 Network Security Project with pfSense
+# 🔒 Projet de sécurisation réseau avec pfSense
 
 [![pfSense Version](https://img.shields.io/badge/pfSense-2.8.1-blue)](https://www.pfsense.org/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Snort](https://img.shields.io/badge/Snort-3.1.0-FF0000?logo=snort)](https://www.snort.org/)
-[![OpenVPN](https://img.shields.io/badge/OpenVPN-2.6-32CD32?logo=openvpn)](https://openvpn.net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 📖 Context
-This end-of-studies project aims to deploy a secure enterprise network infrastructure using pfSense, integrating:
+## 📖 Contexte
+Ce projet, réalisé dans le cadre de ma formation, consiste à déployer une infrastructure réseau sécurisée en utilisant **pfSense**. L'objectif est de mettre en place une défense en profondeur (segmentation, pare-feu, proxy, IDS/IPS, VPN) pour protéger un réseau d'entreprise.
 
-- ✅ Network segmentation (WAN/LAN/DMZ)
-- ✅ Advanced firewall filtering rules
-- ✅ Transparent proxy with web filtering (Squid + SquidGuard)
-- ✅ Reverse proxy and load balancing (HAProxy)
-- ✅ Intrusion detection/prevention system (Snort)
-- ✅ Remote Access and Site-to-Site VPN (OpenVPN)
-- ✅ Centralized certificate management (Internal PKI)
+## 🏗️ Architecture mise en place
+- **Segmentation en 3 zones** : WAN (externe), LAN (interne), DMZ (serveurs exposés).
+- **Pare-feu** : Politique "deny by default" avec règles restrictives (notamment DMZ → LAN).
+- **Proxy & Filtrage** : Squid en mode transparent, couplé à SquidGuard pour le blocage par catégories (blacklist Université de Toulouse).
+- **Détection d'intrusions** : Snort en mode IPS avec politique "Balanced" (détection efficace de scans Nmap).
+- **VPN** : OpenVPN en accès distant (certificat + mot de passe) et en Site-à-Site.
+- **PKI interne** : Création d'une Autorité de Certification (CA) pour sécuriser l'interface Web, l'interception SSL et les tunnels VPN.
 
-## 🏗️ Architecture
-![Network Diagram](docs/network-diagram.png)
+## 📂 Contenu du dépôt
+- [`docs/Projet_Securisation_pfSense.pdf`](docs/Projet_Securisation_pfSense.pdf) : Rapport complet au format PDF, contenant toutes les étapes d'installation, les captures d'écran et les justifications techniques.
+- `LICENSE` : Licence du projet (MIT).
 
-## 🚀 Implemented Features
+## 🚀 Pourquoi ce projet est intéressant ?
+- **Approche exhaustive** : Couvre la majorité des briques de sécurité d'un réseau d'entreprise.
+- **Gestion des erreurs documentée** : Le rapport montre les problèmes rencontrés (notamment sur l'interception HTTPS) et les solutions apportées, démontrant une vraie capacité d'analyse.
+- **Cohérence cryptographique** : Utilisation d'une même infrastructure à clés (PKI) pour plusieurs services.
 
-### 1. Infrastructure Deployment
-- pfSense installation on VMware VMs
-- 3-interface configuration (WAN/LAN/DMZ)
+## 🛠️ Prérequis pour reproduire le projet
+- VMware Workstation / VirtualBox
+- 2 machines virtuelles pfSense (ou 1 pfSense + 1 client Windows/Linux)
+- Connaissances en réseau (sous-réseaux, routage)
 
-### 2. Security Mechanisms
-- **NAT & Port Forwarding**: Secure exposure of a web server in the DMZ
-- **Firewall Rules**: "Deny by default" policy, restrictive DMZ→LAN rules
-- **Access Control**: Internal CA creation to secure the Admin WebGUI
+## 📖 Comment lire ce projet ?
+1. Téléchargez le fichier PDF dans le dossier `docs/`.
+2. Suivez les chapitres dans l'ordre : de l'installation initiale à la mise en place des VPN.
+3. Les captures d'écran illustrent chaque étape clé.
 
-### 3. Service Security
-- **Proxy (Squid)**: HTTPS filtering with SSL interception
-- **SquidGuard**: Category-based blocking (University of Toulouse blacklist)
-- **HAProxy**: HTTP/HTTPS load balancing
+## 👤 Auteur
+**Salma Ouchahed**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://linkedin.com/in/votre-profil) 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)](https://github.com/votre-compte)
 
-### 4. Intrusion Detection
-- **Snort**: "Balanced" policy, effective detection of Nmap scans
-
-### 5. Communication Security
-- **OpenVPN Remote Access**: Certificate + User authentication
-- **OpenVPN Site-to-Site**: Tunnel between two pfSense sites
-
-## 📋 Prerequisites
-- VMware Workstation / Player
-- 2 pfSense VMs (or 1 + Windows/Linux client)
-- Basic networking knowledge (subnets, routing)
-
-## 🛠️ Quick Installation
-1. Download the pfSense ISO
-2. Create VMs with 3 network interfaces
-3. Configure VMware virtual networks (Host-only)
-4. Follow the step-by-step guide in [`docs/`](docs/)
-
-## 🔧 Configuration Files
-Full configuration export available in [`configs/`](configs/).
-
-## 📸 Screenshots
-See the [`docs/screenshots/`](docs/screenshots/) folder for detailed steps.
-
-## 🎥 Demonstration
-[![Demo Video](https://img.youtube.com/vi/.../0.jpg)](https://www.youtube.com/watch?v=...)
-
-## 🧠 Lessons Learned
-- ❌ **Error**: HTTPS filtering in "Bump" mode caused TLS errors.
-- ✅ **Solution**: Switched to "Splice All" for whitelisted sites.
-- 💡 **Best Practice**: Always separate CAs by usage (WebGUI vs VPN).
-
-## 📚 Resources
-- [Official pfSense Documentation](https://docs.netgate.com/pfsense/en/latest/)
-- [SquidGuard Blacklist](https://dsi.ut-capitole.fr/blacklists/)
-
-## 👤 Author
-**Salma Ouchahed** - [GitHub](https://github.com/your-username) - [LinkedIn](https://linkedin.com/in/...)
-
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📜 Licence
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
