@@ -35,7 +35,7 @@ This project, carried out as part of my academic training, aims to deploy a secu
 
 ## 👤 Author
 **Salma Ouchahed**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://www.linkedin.com/) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin)](https://www.linkedin.com/in/salma-ouchahed-652189206/) 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github)](https://github.com/CyberTechSali)
 
 ## 📜 License
